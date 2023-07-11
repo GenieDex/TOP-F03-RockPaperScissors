@@ -1,6 +1,8 @@
 const options = ["rock", "paper", "scissors"];
 let playerChoice;
 let gameResult;
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   let choice = options[parseInt(Math.random() * 3)];
@@ -24,18 +26,20 @@ function getPlayerChoice() {
 
 function rockPaperScissors(player, computer) {
   if (computer === player) {
-    return "Tie!";
+    return "Tie!"
   } else if (
     (computer === "rock" && player === "scissors") ||
     (computer === "paper" && player === "rock") ||
     (computer === "scissors" && player === "paper")
   ) {
+    computerScore++;
     return "You lose!";
   } else if (
     (computer === "scissors" && player === "rock") ||
     (computer === "rock" && player === "paper") ||
     (computer === "paper" && player === "scissors")
   ) {
+    playerScore++;
     return "You win!";
   } else if (
     player !== "rock" &&
@@ -57,6 +61,28 @@ function displayResult() {
   }
   gameResult = rockPaperScissors(playerChoice, computer);
   document.getElementById("gameResult").innerHTML = gameResult;
+  document.getElementById("playerScore").innerHTML = playerScore;
+  document.getElementById("computerScore").innerHTML = computerScore;
+  scoreboard();
+  
+}
+
+function scoreboard(){
+
+  if (playerScore >= 5){
+    document.getElementById("Score").innerHTML = "You won this battle!";
+    document.getElementById("rivalChoice").innerHTML = "";
+    document.getElementById("player").innerHTML = "";
+    document.getElementById("computer").innerHTML = "";
+
+    
+  } else if (computerScore >= 5) {
+    document.getElementById("Score").innerHTML = "You lost this battle!";
+    document.getElementById("rivalChoice").innerHTML = "";
+    document.getElementById("player").innerHTML = "";
+    document.getElementById("computer").innerHTML = "";
+
+  }
 }
 
 function game() {

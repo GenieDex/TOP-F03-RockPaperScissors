@@ -1,5 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: lato;
     color: rgb(48, 48, 48);
 }
 button{
@@ -34,6 +36,20 @@ button{
 #result{
     display: block;
 }
+
+#Score {
+    display: flex;
+    justify-content: space-around;
+    font-weight: 800;
+    font-size: 32pt;
+}
+#playerScore, #computerScore{
+    font-weight: 800;
+    text-align: center;
+    font-size: 20pt;
+}
+
+
 
 h1{
     font-weight: 900;
